@@ -29,7 +29,6 @@ public class Customer {
                     .append(String.valueOf(rental.getCharge()))
                     .append("\n");
         }
-
         result.append("Amount owed is ").append(String.valueOf(getTotalCharge())).append("\n");
         result.append("You earned ").append(String.valueOf(getTotalFrequentRenterPoints()))
                 .append(" frequent renter points");
@@ -43,12 +42,14 @@ public class Customer {
         result.append("<H1>Rentals for <EM>").append(getName()).append("</EM></H1><P>\n");
 
         for (Rental rental : rentals) {
+            // show figures for each rental
             result.append(rental.getMovie().getTitle())
                     .append(": ")
                     .append(String.valueOf(rental.getCharge()))
                     .append("<BR>\n");
         }
 
+        // add footer lines
         result.append("<P>You owe <EM>").append(String.valueOf(getTotalCharge())).append("</EM><P>\n");
         result.append("On this rental you earned <EM>")
                 .append(String.valueOf(getTotalFrequentRenterPoints()))
