@@ -43,7 +43,6 @@ public class Movie {
 
     public int getFrequentRenterPoints(int daysRented) {
         int points = 1;
-
         if ((price.getPriceCode() == NEW_RELEASE)
                 && (daysRented > 1)) {
             points++;
