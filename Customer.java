@@ -26,7 +26,6 @@ public class Customer {
         StringBuilder result = new StringBuilder("Rental Record for " + getName() + "\n");
 
         for (Rental rental : rentals) {
-            double thisAmount = rental.getCharge();
             frequentRenterPoints++;
             if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE)
                     && rental.getDaysRented() > 1) {
@@ -36,10 +35,11 @@ public class Customer {
             result.append("\t")
                     .append(rental.getMovie().getTitle())
                     .append("\t")
-                    .append(String.valueOf(thisAmount))
+                    .append(String.valueOf(rental.getCharge()))
                     .append("\n");
-            totalAmount += thisAmount;
+            totalAmount += rental.getCharge();
         }
+
         result.append("Amount owed is ").append(String.valueOf(totalAmount)).append("\n");
         result.append("You earned ").append(String.valueOf(frequentRenterPoints))
                 .append(" frequent renter points");
