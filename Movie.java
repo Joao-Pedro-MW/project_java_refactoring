@@ -47,4 +47,15 @@ public class Movie {
         }
         return thisAmount;
     }
+
+    public int getFrequentRenterPoints(int daysRented) {
+        int points = 1;
+
+        if ((priceCode == NEW_RELEASE)
+                && (daysRented > 1)) {
+            points++;
+        }
+
+        return points;
+    }
 }
