@@ -4,14 +4,8 @@ public class Movie {
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
-
     private final String title;
     private Price price;
-
-    public Movie(String title, int priceCode) {
-        this.title = title;
-        setPriceCode(priceCode);
-    }
 
     public int getPriceCode() {
         return price.getPriceCode();
@@ -42,12 +36,6 @@ public class Movie {
     }
 
     public int getFrequentRenterPoints(int daysRented) {
-        int points = 1;
-        if ((price.getPriceCode() == NEW_RELEASE)
-                && (daysRented > 1)) {
-            points++;
-        }
-
-        return points;
+        return price.getFrequentRenterPoints(daysRented);
     }
 }
