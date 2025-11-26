@@ -3,14 +3,6 @@ import java.util.Enumeration;
 
 public abstract class Statement {
 
-    public abstract String headerString(Customer aCustomer);
-
-    public abstract String rentalString(Rental aRental);
-
-    public abstract String footerStringCharge(Customer aCustomer);
-
-    public abstract String footerStringPoints(Customer aCustomer);
-
     public String value(Customer aCustomer) {
         Enumeration rentals = aCustomer.getRentals();
         String result = headerString(aCustomer);
@@ -24,4 +16,12 @@ public abstract class Statement {
         result += footerStringPoints(aCustomer);
         return result;
     }
+
+    public abstract String headerString(Customer aCustomer);
+
+    public abstract String rentalString(Rental aRental);
+
+    public abstract String footerStringCharge(Customer aCustomer);
+
+    public abstract String footerStringPoints(Customer aCustomer);
 }

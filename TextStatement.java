@@ -24,9 +24,4 @@ public class TextStatement extends Statement {
                 + String.valueOf(aCustomer.getTotalFrequentRenterPoints())
                 + " frequent renter points";
     }
-
-    // Método value() idêntico ao de HtmlStatement
-    public String value(Customer aCustomer) {
-        return super.value(aCustomer);
-    }
 }
