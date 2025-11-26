@@ -1,22 +1,32 @@
 
-import java.util.Enumeration;
-
 public class TextStatement extends Statement {
 
-    public String value(Customer aCustomer) {
-        Enumeration rentals = aCustomer.getRentals();
-        String result = "Rental Record for " + aCustomer.getName()
-                + "\n";
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
-            result += "\t" + each.getMovie().getTitle() + "\t"
-                    + String.valueOf(each.getCharge()) + "\n";
-        }
-        result += "Amount owed is "
+    @Override
+    public String headerString(Customer aCustomer) {
+        return "Rental Record for " + aCustomer.getName() + "\n";
+    }
+
+    @Override
+    public String rentalString(Rental aRental) {
+        return "\t" + aRental.getMovie().getTitle() + "\t"
+                + String.valueOf(aRental.getCharge()) + "\n";
+    }
+
+    @Override
+    public String footerStringCharge(Customer aCustomer) {
+        return "Amount owed is "
                 + String.valueOf(aCustomer.getTotalCharge()) + "\n";
-        result += "You earned "
+    }
+
+    @Override
+    public String footerStringPoints(Customer aCustomer) {
+        return "You earned "
                 + String.valueOf(aCustomer.getTotalFrequentRenterPoints())
                 + " frequent renter points";
-        return result;
+    }
+
+    // Método value() idêntico ao de HtmlStatement
+    public String value(Customer aCustomer) {
+        return super.value(aCustomer);
     }
 }
